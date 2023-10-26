@@ -1,4 +1,9 @@
-import { BrowserRouter as Router, Route, Link, Routes } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Route,
+  NavLink,
+  Routes,
+} from "react-router-dom";
 
 import React from "react";
 import Home from "./Routing/Home";
@@ -9,22 +14,44 @@ const App = () => {
   return (
     <div className=" pt-4 mx-auto w-3/5">
       <Router>
-        <nav className="bg-blue-100 p-4 mb-2">
+        <nav className="bg-blue-100 p-4 py-8 mb-2">
           <ul className="flex gap-4 text-lg font-bold text-blue-600">
             <li>
-              <Link to="/" className="hover:text-blue-800">
+              <NavLink
+                exact
+                to="/"
+                className={(navData) =>
+                  navData.isActive
+                    ? "m-2 mb-0 text-blue-700 border-b-2 dark:text-blue-300 border-blue-700 pb-2"
+                    : "m-2 mb-0"
+                }
+              >
                 Home
-              </Link>
+              </NavLink>
             </li>
             <li>
-              <Link to="/aboutUs" className="hover:text-blue-800">
-                About Us
-              </Link>
+              <NavLink
+                to="/aboutUs"
+                className={(navData) =>
+                  navData.isActive
+                    ? "m-2 mb-0 text-blue-700 border-b-2 dark:text-blue-300 border-blue-700 pb-2"
+                    : "m-2 mb-0"
+                }
+              >
+                AboutUs
+              </NavLink>
             </li>
             <li>
-              <Link to="/blog" className="hover:text-blue-800">
+              <NavLink
+                to="/blog"
+                className={(navData) =>
+                  navData.isActive
+                    ? "m-2 mb-0 text-blue-700 border-b-2 dark:text-blue-300 border-blue-700 pb-2"
+                    : "m-2 mb-0"
+                }
+              >
                 Blog
-              </Link>
+              </NavLink>
             </li>
           </ul>
         </nav>
