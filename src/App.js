@@ -1,24 +1,14 @@
-import "./App.css";
-import ShowUI from "./Components4/ShowUI";
-import Logic from "./Components4/Logic";
-import {ContextComponent} from "./Components4/ContextComponent";
+import React from 'react'
 
-function App() {
+const App = () => {
   return (
-    <>
-      <div className="flex  h-screen">
-        <div className="w-3/5 h-3/4 mt-10 bg-blue-200 border border-blue-400 mx-auto rounded-md p-4">
-          <ContextComponent>
-            <ShowUI />
-            <Logic />
-          </ContextComponent>
-        </div>
-      </div>
-    </>
-  );
+    <div>
+      this component
+    </div>
+  )
 }
 
-export default App;
+export default App
 
 
 
@@ -37,6 +27,36 @@ export default App;
 
 
 
+
+
+
+
+
+
+
+
+// //contextAPI App.js code
+// import "./App.css";
+// import ShowUI from "./ContextAPI/ShowUI";
+// import Logic from "./ContextAPI/Logic";
+// import {ContextComponent} from "./ContextAPI/ContextComponent";
+
+// function App() {
+//   return (
+//     <>
+//       <div className="flex  h-screen">
+//         <div className="w-3/5 h-3/4 mt-10 bg-blue-200 border border-blue-400 mx-auto rounded-md p-4">
+//           <ContextComponent>
+//             <ShowUI />
+//             <Logic />
+//           </ContextComponent>
+//         </div>
+//       </div>
+//     </>
+//   );
+// }
+
+// export default App;
 
 
 // import React, { useState, createContext } from "react";

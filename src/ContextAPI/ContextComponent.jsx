@@ -3,8 +3,6 @@ import React, { createContext, useContext, useState } from "react";
 const MyContext = createContext();
 
 
-
-
 const ContextComponent = ({ children }) => {
 
   const [Count, setCount] = useState(0);
