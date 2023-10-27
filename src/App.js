@@ -1,105 +1,168 @@
-import {
-  BrowserRouter as Router,
-  Route,
-  NavLink,
-  Routes,
-} from "react-router-dom";
+//useReducer hook
+import React, { useReducer, useEffect } from "react";
+import ArrayEntry from "./ArrayMethodSimulation/ArrayEntry";
+import ArrayList from "./ArrayMethodSimulation/ArrayList";
+import Controls from "./ArrayMethodSimulation/Controls ";
 
-import React from "react";
-import Home from "./Routing/Home";
-import Blog from "./Routing/Blog";
-import AboutUs from "./Routing/AboutUs";
+//reducer fxn                       //action.payload is the element to be added
+const reducer = (state, action) => {
+  switch (action.type) {
+    case "ON_PUSH": // Push adds a new date object from the payload
+      return [...state, action.payload];
+
+    case "POP":
+      return state.slice(0, -1); // Pop removes the last date object
+
+    case "UN_SHIFFT":
+      return [action.payload, ...state]; // Unshift adds at the beginning, a new date object from the payload
+
+    case "SHIFT":
+      return state.slice(1); // Shift (remove) the first date object
+
+    default:
+      return state;
+  }
+};
 
 const App = () => {
-  return (
-    <div className=" pt-4 mx-auto w-3/5">
-      <Router>
-        <nav className="bg-blue-100 p-4 py-8 mb-2">
-          <ul className="flex gap-4 text-lg font-bold text-blue-600">
-            <li>
-              <NavLink
-                exact
-                to="/"
-                className={(navData) =>
-                  navData.isActive
-                    ? "m-2 mb-0 text-blue-700 border-b-2 dark:text-blue-300 border-blue-700 pb-2"
-                    : "m-2 mb-0"
-                }
-              >
-                Home
-              </NavLink>
-            </li>
-            <li>
-              <NavLink
-                to="/aboutUs"
-                className={(navData) =>
-                  navData.isActive
-                    ? "m-2 mb-0 text-blue-700 border-b-2 dark:text-blue-300 border-blue-700 pb-2"
-                    : "m-2 mb-0"
-                }
-              >
-                AboutUs
-              </NavLink>
-            </li>
-            <li>
-              <NavLink
-                to="/blog"
-                className={(navData) =>
-                  navData.isActive
-                    ? "m-2 mb-0 text-blue-700 border-b-2 dark:text-blue-300 border-blue-700 pb-2"
-                    : "m-2 mb-0"
-                }
-              >
-                Blog
-              </NavLink>
-            </li>
-          </ul>
-        </nav>
+  const initialState = [];
 
-        <Routes>
-          <Route exact path="/" element={<Home />} />
-          <Route path="/AboutUs" element={<AboutUs />} />
-          <Route path="/Blog" element={<Blog />} />
-        </Routes>
-      </Router>
+  const [state, dispatch] = useReducer(reducer, initialState);
+
+  return (
+    <div className="">
+      {/* <ArrayEntry dates={state} dispatch={dispatch} /> */}
+      <ArrayList dates={state} />
+      <Controls dates={state} dispatch={dispatch} />
     </div>
   );
 };
 
 export default App;
 
-// //useReducer hook
-// import React, { useReducer } from "react";
-// import ArrayEntry from "./ArrayMethodSimulation/ArrayEntry";
-// import ArrayList from "./ArrayMethodSimulation/ArrayList";
-// import Controls from "./ArrayMethodSimulation/Controls ";
 
-// //reducer fxn //action.payload is the element to be added
-// const reducer = (state, action) => {
-//   switch (action.type) {
-//     case "ON_PUSH":// Push a new date object from the payload
-//       return [...state, action.payload];
-//     case "POP":
-//       return state.slice(0, -1); // Pop removes the last date object
-//     case "UN_SHIFFT":
-//       return [action.payload, ...state]; // Unshift adds at the beginning, a new date object from the payload
-//     case "SHIFT":
-//       return state.slice(1); // Shift (remove) the first date object
-//     default:
-//       return state;
-//   }
-// };
+
+
+
+
+
+
+// import React from "react";
+
+// const dogs = [
+//   {
+//     name: "whiskey",
+//     id: 0,
+//     image: whiskeyPic,
+//     age: 4,
+//     facts: [
+//       "Whiskey loves eating popcorn",
+//       "Whiskey is a terrible guard dog",
+//       "Whiskey wants to cuddle with you",
+//     ],
+//   },
+//   {
+//     name: "hazel",
+//     id: 1,
+//     age: 0,
+//     image: hazelPic,
+//     facts: [
+//       "Hazel has a lot of energy",
+//       "Hazel is highly intelligent",
+//       "Hazel loves people more than dogs",
+//     ],
+//   },
+//   {
+//     name: "tubby",
+//     id: 2,
+//     age: 4,
+//     image: tubbyPic,
+//     facts: [
+//       "Tubby is really stupid",
+//       "Tubby does not like walks",
+//       "Angelina hates Tubby",
+//     ],
+//   },
+// ];
 
 // const App = () => {
-//   const initialState = [];
-
-//   const [state, dispatch] = useReducer(reducer, initialState );
-
 //   return (
-//     <div className="">
-//       <ArrayEntry dates={state} dispatch={dispatch} />
-//       <ArrayList dates={state} dispatch={dispatch} />
-//       <Controls dates={state} dispatch={dispatch} />
+//     <div>
+//       <p> this is the app.js component </p>
+//       {dogs.map(() => (
+//         <div></div>
+//       ))}
+//     </div>
+//   );
+// };
+
+// export default App;
+
+// //Routing App.js component
+// import {
+//   BrowserRouter as Router,
+//   Route,
+//   NavLink,
+//   Routes,
+// } from "react-router-dom";
+
+// import React from "react";
+// import Home from "./Routing/Home";
+// import Blog from "./Routing/Blog";
+// import AboutUs from "./Routing/AboutUs";
+
+// const App = () => {
+//   return (
+//     <div className=" pt-4 mx-auto w-3/5">
+//       <Router>
+//         <nav className="bg-blue-100 p-4 py-8 mb-2">
+//           <ul className="flex gap-4 text-lg font-bold text-blue-600">
+//             <li>
+//               <NavLink
+//                 exact
+//                 to="/"
+//                 className={(navData) =>
+//                   navData.isActive
+//                     ? "m-2 mb-0 text-blue-700 border-b-2 dark:text-blue-300 border-blue-700 pb-2"
+//                     : "m-2 mb-0"
+//                 }
+//               >
+//                 Home
+//               </NavLink>
+//             </li>
+//             <li>
+//               <NavLink
+//                 to="/aboutUs"
+//                 className={(navData) =>
+//                   navData.isActive
+//                     ? "m-2 mb-0 text-blue-700 border-b-2 dark:text-blue-300 border-blue-700 pb-2"
+//                     : "m-2 mb-0"
+//                 }
+//               >
+//                 AboutUs
+//               </NavLink>
+//             </li>
+//             <li>
+//               <NavLink
+//                 to="/blog"
+//                 className={(navData) =>
+//                   navData.isActive
+//                     ? "m-2 mb-0 text-blue-700 border-b-2 dark:text-blue-300 border-blue-700 pb-2"
+//                     : "m-2 mb-0"
+//                 }
+//               >
+//                 Blog
+//               </NavLink>
+//             </li>
+//           </ul>
+//         </nav>
+
+//         <Routes>
+//           <Route exact path="/" element={<Home />} />
+//           <Route path="/AboutUs" element={<AboutUs />} />
+//           <Route path="/Blog" element={<Blog />} />
+//         </Routes>
+//       </Router>
 //     </div>
 //   );
 // };
