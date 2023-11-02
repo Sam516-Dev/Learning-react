@@ -1,3 +1,28 @@
+import React from 'react';
+import BoxMovement from './MovingBox/BoxMovement';
+
+
+function App() {
+  return (
+    <div className=' w-1/2 h-2/3 mx-auto m-6 items-center'>
+      <h1>Move the Box Upwards</h1>
+     <BoxMovement/>
+    </div>
+  );
+}
+
+export default App;
+
+
+
+
+
+
+
+
+
+
+
 // import React from "react";
 // import FetchingData from "./useEffect Hook/FetchingData";
 
@@ -12,78 +37,78 @@
 // export default App;
 
 //Routing App.js component
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-  NavLink,
-} from "react-router-dom";
+// import {
+//   BrowserRouter as Router,
+//   Routes,
+//   Route,
+//   NavLink,
+// } from "react-router-dom";
 
-import React from "react";
+// import React from "react";
 
-import Home from "./Routing/Home";
-import Blog from "./Routing/Blog";
-import AboutUs from "./Routing/AboutUs";
+// import Home from "./Routing/Home";
+// import Blog from "./Routing/Blog";
+// import AboutUs from "./Routing/AboutUs";
 
-const App = () => {
-  return (
-    <div className=" pt-4 mx-auto w-3/5">
-      <Router>
-        <nav className="bg-blue-100 p-4 py-8 mb-2">
-          <ul className="flex gap-4 text-lg font-bold text-blue-600">
-            <li>
-              <NavLink
-                exact
-                to="/"
-                className={(navData) =>
-                  navData.isActive
-                    ? "m-2 mb-0 text-blue-700 border-b-2 dark:text-blue-300 border-blue-700 pb-2"
-                    : "m-2 mb-0"
-                }
-              >
-                Home
-              </NavLink>
-            </li>
+// const App = () => {
+//   return (
+//     <div className=" pt-4 mx-auto w-3/5">
+//       <Router>
+//         <nav className="bg-blue-100 p-4 py-8 mb-2">
+//           <ul className="flex gap-4 text-lg font-bold text-blue-600">
+//             <li>
+//               <NavLink
+//                 exact
+//                 to="/"
+//                 className={(navData) =>
+//                   navData.isActive
+//                     ? "m-2 mb-0 text-blue-700 border-b-2 dark:text-blue-300 border-blue-700 pb-2"
+//                     : "m-2 mb-0"
+//                 }
+//               >
+//                 Home
+//               </NavLink>
+//             </li>
 
-            <li>
-              <NavLink
-                to="/aboutUs"
-                className={(navData) =>
-                  navData.isActive
-                    ? "m-2 mb-0 text-blue-700 border-b-2 dark:text-blue-300 border-blue-700 pb-2"
-                    : "m-2 mb-0"
-                }
-              >
-                AboutUs
-              </NavLink>
-            </li>
+//             <li>
+//               <NavLink
+//                 to="/aboutUs"
+//                 className={(navData) =>
+//                   navData.isActive
+//                     ? "m-2 mb-0 text-blue-700 border-b-2 dark:text-blue-300 border-blue-700 pb-2"
+//                     : "m-2 mb-0"
+//                 }
+//               >
+//                 AboutUs
+//               </NavLink>
+//             </li>
 
-            <li>
-              <NavLink
-                to="/blog"
-                className={(navData) =>
-                  navData.isActive
-                    ? "m-2 mb-0 text-blue-700 border-b-2 dark:text-blue-300 border-blue-700 pb-2"
-                    : "m-2 mb-0"
-                }
-              >
-                Blog
-              </NavLink>
-            </li>
-          </ul>
-        </nav>
+//             <li>
+//               <NavLink
+//                 to="/blog"
+//                 className={(navData) =>
+//                   navData.isActive
+//                     ? "m-2 mb-0 text-blue-700 border-b-2 dark:text-blue-300 border-blue-700 pb-2"
+//                     : "m-2 mb-0"
+//                 }
+//               >
+//                 Blog
+//               </NavLink>
+//             </li>
+//           </ul>
+//         </nav>
 
-        <Routes>
-          <Route exact path="/" element={<Home />} />
-          <Route path="/AboutUs" element={<AboutUs />} />
-          <Route path="/Blog" element={<Blog />} />
-        </Routes>
-      </Router>
-    </div>
-  );
-};
+//         <Routes>
+//           <Route exact path="/" element={<Home />} />
+//           <Route path="/AboutUs" element={<AboutUs />} />
+//           <Route path="/Blog" element={<Blog />} />
+//         </Routes>
+//       </Router>
+//     </div>
+//   );
+// };
 
-export default App;
+// export default App;
 
 // //useReducer hook
 // import React, { useReducer, useEffect } from "react";
