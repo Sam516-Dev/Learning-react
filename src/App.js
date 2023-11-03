@@ -1,27 +1,21 @@
-import React from 'react';
-import BoxMovement from './MovingBox/BoxMovement';
-
+import React from "react";
+import BoxMovement from "./MovingBox/BoxMovement";
+import Hero from "./styleImages/Hero";
+import Modal from "./styleImages/Modal";
+import { Context } from "./styleImages/Context";
 
 function App() {
   return (
-    <div className=' w-1/2 h-2/3 mx-auto m-6 items-center'>
-      <h1>Move the Box Upwards</h1>
-     <BoxMovement/>
+    <div className="mx-12 m-8">
+      <Context>
+        <Hero />
+        <Modal />
+      </Context>
     </div>
   );
 }
 
 export default App;
-
-
-
-
-
-
-
-
-
-
 
 // import React from "react";
 // import FetchingData from "./useEffect Hook/FetchingData";
