@@ -1,5 +1,4 @@
 import React from "react";
-import BoxMovement from "./MovingBox/BoxMovement";
 import Hero from "./styleImages/Hero";
 import Modal from "./styleImages/Modal";
 import { Context } from "./styleImages/Context";

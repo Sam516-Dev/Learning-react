@@ -13,13 +13,16 @@ const Modal = () => {
   return (
     <>
       {selectedItem && isModalOpen ? (
+
         <div className="fixed z-10 inset-0 flex items-center justify-center overflow-auto bg-gray-900 bg-opacity-70">
           <div className="bg-white rounded-lg p-4 w-full max-w-4xl max-h-screen overflow-hidden">
+           
             <div className=" relative flex justify-between gap-10">
+             
               <div className=" w-full h-80 flex border  bg-white rounded-md p-1 border-green-500">
                 <img
                   src={selectedItem.image}
-                  alt={selectedItem.description}
+                //   alt={selectedItem.description}
                   className="w-full h-full object-cover"
                 />
               </div>
@@ -39,8 +42,9 @@ const Modal = () => {
                 <p className="text-gray-700  mr-4 mb-4">
                   {selectedItem.description}
                 </p>
+
                 <p className="bg-green-500 p-3 w-36 text-white font-bold text-lg rounded-md ">
-                  Ksh. {selectedItem.price * 5}
+                  Ksh. {selectedItem.price * 10}
                 </p>
 
                 <div className="flex gap-3 items-center">
@@ -58,11 +62,12 @@ const Modal = () => {
                   )}
                   {/* <AiOutlineStar className="text-gray-500 h-5 w-5" /> */}
                 </div>
+                
               </div>
             </div>
           </div>
         </div>
-      ) : null}
+      ) : <p> modal not open ! </p>}
     </>
   );
 };
